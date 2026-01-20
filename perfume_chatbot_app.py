@@ -1,10 +1,12 @@
 import streamlit as st
 import pandas as pd
 import os
+from dotenv import load_dotenv
 from huggingface_hub import InferenceClient
 
 # ---------------- LOAD ENV ----------------
-HF_TOKEN = st.secrets["HF_TOKEN"]
+load_dotenv()
+HF_TOKEN = os.getenv("HF_TOKEN")
 
 client = InferenceClient(
     model="mistralai/Mistral-7B-Instruct-v0.2",
